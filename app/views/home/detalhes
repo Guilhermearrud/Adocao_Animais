@@ -1,0 +1,8 @@
+A gente instalou um monte de gem ai para poder fazer isso, não da para simplismente programar nessa merda
+você precisa ficar instalando as gens que ja vem com as coisas tudo pronta.
+
+em rb->migrate eu ainda coloquei uns espaços novos lá para por que a professorauer uma troçada monstruosa nesse cadastro então fazer o que né.
+
+no db->migrate tem todas as informações que nos cadastramos e que vai ficar salvas lá aquilo que o usuario vai ter que digitar.
+
+APP -> Models -> lá tem tudo que botamos como obrigatorio.
