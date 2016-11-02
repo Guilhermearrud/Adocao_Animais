@@ -1,0 +1,26 @@
+<body>
+    <div class="container-fluid well span6">
+</br>
+
+    <% @animals.each do |animal|%>
+    <% if animal.avatar_url.present? %>
+    <%= image_tag animal.avatar_url, style: "max-width: 300px; max-height: 200px;" %>
+    <% end %> 
+
+	    <div class="row-fluid">
+        <div class="span2" ></div>   
+        <div class="span8">
+            <h6> Tipo: <%= animal.tipo %></h6>
+            <h6> Observações: <%= animal.obs%> </h6>
+            <h6> Raça: <%= animal.raca%> </h6>
+            <h6> Informações: <%= animal.info %></h6>
+            <% unless animal.video.nil?%>
+        <div style="width:100%;height:100%;width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;">
+            <embed src="http://www.youtube.com/v/<%=animal.video%>?version=3&amp;hl=en_US&amp;rel=0&amp;autohide=1&amp;autoplay=1"  wmode="transparent" type="application/x-shockwave-flash" width="100%" height="100%   " allowfullscreen="true" title="Adobe Flash Player">
+        </div>
+        <%end%>
+    </div>
+    </div>
+<% end %>
+    </div>
+</body>

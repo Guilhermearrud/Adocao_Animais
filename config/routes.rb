@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   #Precisamos mudar aqui para ele pegar a rota do controler sobrescrito!
   get 'home' => 'home#index' 
   root 'home#index'
+  
+  resources :animals do 
+    get "search", on: :collection
+    post "find", on: :collection
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

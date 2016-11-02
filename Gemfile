@@ -13,6 +13,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+# NOTE: The sass-rails gem is included with new Rails applications by default.
+#       Please make sure that it is not already in your Gemfile before uncommenting it.
+# gem 'sass-rails'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

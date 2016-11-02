@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002031515) do
+ActiveRecord::Schema.define(version: 20161101164004) do
+
+  create_table "animals", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "info"
+    t.string   "tipo"
+    t.string   "raca"
+    t.string   "obs"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "avatar"
+    t.string   "video"
+    t.boolean  "adopted",    default: false
+  end
+
+  add_index "animals", ["user_id"], name: "index_animals_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

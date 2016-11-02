@@ -1,0 +1,37 @@
+<%= form_for(@animal) do |f| %>
+
+  <div class="field">
+    <%= f.label :info,"Informações" %><br />
+    <%= f.text_field :info, autofocus: true %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :tipo,"Tipo" %><br />
+    <%= f.select :tipo,["Cachorro","Gato"] %>
+    </div><br>
+
+  <div class="field">
+    <%= f.label :raca,"Raça" %><br />
+    <%= f.text_field :raca %>
+  </div> <br>
+
+  <div class="field">
+    <%= f.label :obs,"Observações" %><br />
+    <%= f.text_field :obs %>
+  </div><br>
+
+  <div>
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :video,"Video (obs: basta copiar o código do vídeo que vem depois do =   ex:f59UYvoVroM )" %><br />
+    <%= f.text_field :video %>
+  </div><br>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>

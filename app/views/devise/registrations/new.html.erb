@@ -1,5 +1,37 @@
-<h2>Sign up</h2>
+<h2>Se Inscrever</h2>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        body {
+                font-style: italic;
+                font-color: white;
+                width: 50%;
+                margin: 0px auto;
+                background-image: url("http://www.wallpaperhd.pk/wp-content/uploads/2015/11/rainbow-colors-background-wallpaper.jpg");
+            }
+            #login_form {
+            }
+            #f1 {
+          background-repeat: y-repeat;
+          /*background-color: #FFF; */
+          border-style: solid;
+          border-width: 1px;
+          padding: 10px 10px 20px 50px;
+            }
+            .f1_label {
+                white-space: nowrap;
+            }
+            span {color: white;}
 
+            .new {
+                background: black;
+                text-align: center;
+            }
+        </style>
+    </head> 
+
+<body>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -11,8 +43,8 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
-  </div>
-
+    </div>
+ 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -99,3 +131,5 @@
 <script type="text/javascript">
   $('#input-cep').cep();
 </script>
+</div>
+</body>

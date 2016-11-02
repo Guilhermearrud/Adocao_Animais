@@ -1,0 +1,36 @@
+<p> Utilize as opção abaixo para procurar o seu animalzinho </p>
+
+<%= form_tag(find_animals_path, method: "post") do %>
+  <div class="field">
+    <%= label_tag :tipo,"Tipo" %><br />
+    <%= select_tag :tipo, options_for_select(["Gato","Cachorro"]) %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= label_tag :raca,"Raça" %><br />
+    <%= text_field_tag :raca %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= label_tag :user,"Usuario" %><br />
+    <%= text_field_tag :user %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= label_tag :adopted,"Para adoção?" %><br />
+    <%= select_tag :adopted, options_for_select(["Sim","Não"]) %>
+  </div>
+
+  <br>
+
+  <div class="search">
+    <%= submit_tag "Buscar" %>
+  </div>
+
+<% end %>

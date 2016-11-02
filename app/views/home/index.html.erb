@@ -1,18 +1,121 @@
-<% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-<% else %>
-  <%= link_to('Login', new_user_session_path)  %>  
-<% end %>
-</br>
-<td>
-	<% if current_user.avatar_url.present? %>
-    	<%= image_tag current_user.avatar_url %>
-    <% end %>
-</td>
-<ul>
-	<li>Login: <%= current_user.login %></li>
-	<li>Nome: <%= current_user.name %></li>
-	<li>Email: <%= current_user.email %></li>
-	<li>Celular: <%= current_user.celphone %></li>
-	<li>Telefone: <%= current_user.numberphone %></li>
-</ul>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+               <!-- <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <% if user_signed_in? %>
+                          <%= link_to('Logout',destroy_user_session_path,:method =>:delete)%>     
+                        <% else %> 
+                            <%= link_to "Login", new_user_session_path%>
+                        <% end %>
+                    </li>
+              <!--      <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li> !-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Loja de adoção</p>
+                <div class="list-group">
+
+                <%= link_to "Cadastrar Animal", new_animal_path, class:"list-group-item"%>
+
+                <%= link_to "Procurar Animal", search_animals_path, class:"list-group-item"%>
+
+                <%= link_to "Editar Perfil", edit_user_registration_path, class:"list-group-item"%>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <% @notAdopteds.each_with_index do |notAdopted, index| %>
+                                    <div class="item <%= get_active(index) %>">
+                                        <%= image_tag notAdopted.avatar_url, class: "slide-image",  style: "max-width: 400px; max-height: 600px;" %>
+                                    </div>
+                                <% end %>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <% @notAdopteds.each do |notAdopted| %>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <% if notAdopted.avatar_url.present? %>
+                                    <%= image_tag notAdopted.avatar_url %>
+                                <% end %> 
+                                <div class="caption">
+                                    <h4><a href="#"><%= notAdopted.info %></a>
+                                    </h4>
+                                    <div class="ratings">
+                                        <p class="pull-right">Telefone: <%= notAdopted.user.celphone %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% end %>    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
