@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :login, uniqueness: true
   validates :avatar, presence: true
-  validates :numberphone, format: { with: /\d{5}-\d{4}/, message: "Digite o telefone no formato 9xxxx-xxxx" }
+  validates :numberphone, presence: true
   validates :celphone, presence: true
 end
 

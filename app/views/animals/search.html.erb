@@ -2,29 +2,29 @@
 
 <%= form_tag(find_animals_path, method: "post") do %>
   <div class="field">
-    <%= label_tag :tipo,"Tipo" %><br />
-    <%= select_tag :tipo, options_for_select(["Gato","Cachorro"]) %>
+    <%= label_tag :tipo, "Tipo" %><br />
+    <%= select_tag :tipo, options_for_select(["Gato","Cachorro"]), include_blank: true %>
   </div>
 
   <br>
 
   <div class="field">
     <%= label_tag :raca,"Raça" %><br />
-    <%= text_field_tag :raca %>
+    <%= select_tag :raca, options_for_select(@raca), include_blank: true %>
   </div>
 
   <br>
 
   <div class="field">
     <%= label_tag :user,"Usuario" %><br />
-    <%= text_field_tag :user %>
+    <%= select_tag :user, options_from_collection_for_select(@users, 'id', 'email'), include_blank: true %>
   </div>
 
   <br>
 
   <div class="field">
     <%= label_tag :adopted,"Para adoção?" %><br />
-    <%= select_tag :adopted, options_for_select(["Sim","Não"]) %>
+    <%= select_tag :adopted, options_for_select([["Sim", "f"],["Não", "t"]]), include_blank: true %>
   </div>
 
   <br>

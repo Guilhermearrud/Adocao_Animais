@@ -33,7 +33,16 @@ class AnimalsController < ApplicationController
 	end
 
 	def find
+		@animals = Animal.where(search_params)
 	end
+
+	private
+
+  def search_params
+    params.
+      permit(:tipo, :user, :adopted, :raca).
+      delete_if {|key, value| value.blank? }
+  end
 
 	def animal_params 
 		params.require(:animal).permit(:tipo,:raca,:obs,:info, :avatar, :avatar_cache, :video)
